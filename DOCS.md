@@ -50,4 +50,9 @@
 
 - Add Facebook login
   - package: https://pub.dev/packages/flutter_facebook_auth
-  - Add `<string>fb{your-app-id}</string>` in Info.plist
+    - Add `<string>fb{your-app-id}</string>` in Info.plist
+    - Follow all the steps in the README
+  - Add FacebookLogin method in authentication_repository
+  - in ios/ run `pod update` (don't know exactly why [[source]](https://github.com/roughike/flutter_facebook_login/issues/59))
+  - Enable facebook sign-in method in firebase
+
