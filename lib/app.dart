@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_login_template/authentication/bloc/authentication_bloc.dart';
+import 'package:flutter_login_template/theme.dart';
+import 'package:flutter_login_template/components/splash/splash.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -16,7 +19,9 @@ class App extends StatelessWidget {
     return RepositoryProvider.value(
       value: authenticationRepository,
       child: BlocProvider(
-        create: (_) => null,
+        create: (_) => AuthenticationBloc(
+          authenticationRepository: authenticationRepository,
+        ),
         child: AppView(),
       ),
     );
@@ -29,12 +34,24 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
+  NavigatorState get _navigator => _navigatorKey.currentState;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        child: Text('Yo'),
-      ),
+      theme: theme,
+      navigatorKey: _navigatorKey,
+      builder: (context, child) {
+        return BlocListener<AuthenticationBloc, AuthenticationState>(
+          listener: (context, state) {
+            print(state.status);
+          },
+          child: child,
+        );
+      },
+      onGenerateRoute: (_) => SplashPage.route(),
     );
   }
 }
