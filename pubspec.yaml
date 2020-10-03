@@ -18,6 +18,7 @@ dependencies:
     path: packages/authentication_repository
   google_fonts: ^1.1.0
   formz: ^0.3.1
+  font_awesome_flutter: ^8.8.1
 
 dev_dependencies:
   flutter_test:

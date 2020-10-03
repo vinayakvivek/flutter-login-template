@@ -39,3 +39,7 @@
       - Right-click on Runner -> Add files -> Select `GoogleService-Info.plist` (copy if required on)
     - Check out [this](https://github.com/FirebaseExtended/flutterfire/issues/2751): *Couldn't find `ios/Podfile`*
       - Do `pod init` to create a Podfile
+    - Add URL scheme: https://developers.google.com/identity/sign-in/ios/start-integrating
+- Add required sign-in methods
+  - Go to sign-in methods tab, under authentication
+  - Enable `Email/password`, `Google`

@@ -53,6 +53,7 @@ class AuthenticationRepository {
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken
       );
+      print(credential);
       await _firebaseAuth.signInWithCredential(credential);
     } on Exception {
       throw LogInWithGoogleFailure();
