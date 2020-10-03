@@ -43,3 +43,11 @@
 - Add required sign-in methods
   - Go to sign-in methods tab, under authentication
   - Enable `Email/password`, `Google`
+
+- Update App icon
+  - https://pub.dev/packages/flutter_launcher_icons
+  - reboot the phone/emulator (icon might be cached)
+
+- Add Facebook login
+  - package: https://pub.dev/packages/flutter_facebook_auth
+  - Add `<string>fb{your-app-id}</string>` in Info.plist

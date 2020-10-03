@@ -40,7 +40,4 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# firebase creds
-google-services.json
-GoogleService-Info.plist
 .vscode/
