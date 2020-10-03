@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_login_template/authentication/bloc/authentication_bloc.dart';
+import 'package:flutter_login_template/authentication/authentication.dart';
 import 'package:flutter_login_template/theme.dart';
-import 'package:flutter_login_template/components/splash/splash.dart';
+import 'package:flutter_login_template/components/components.dart';
 
 class App extends StatelessWidget {
   const App({
