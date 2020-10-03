@@ -39,6 +39,14 @@ class AuthenticationBloc
     return super.close();
   }
 
+  @override
+  void onEvent(event) {
+    super.onEvent(event);
+    if (event is AuthenticationUserChanged) {
+      print(event.user);
+    }
+   }
+
   AuthenticationState _mapAuthenticationUserChangedToState(
     AuthenticationUserChanged event,
   ) {

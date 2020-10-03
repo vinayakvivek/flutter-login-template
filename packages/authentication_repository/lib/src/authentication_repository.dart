@@ -7,6 +7,8 @@ import 'models/models.dart';
 
 class SignUpFailure implements Exception {}
 
+class UpdateProfileFailure implements Exception {}
+
 class LogInWithGoogleFailure implements Exception {}
 
 class LogInWithEmailAndPasswordFailure implements Exception {}
@@ -25,9 +27,13 @@ class AuthenticationRepository {
   final GoogleSignIn _googleSignIn;
 
   Stream<User> get user {
-    return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      return firebaseUser == null ? User.empty : firebaseUser.toUser;
+    return _firebaseAuth.userChanges().map((user) {
+      return user == null || user.displayName == null ? User.empty : user.toUser;
     });
+  }
+
+  Future<void> refresh() async {
+    await _firebaseAuth.currentUser.reload();
   }
 
   Future<void> signUp({
@@ -42,6 +48,16 @@ class AuthenticationRepository {
       );
     } on Exception {
       throw SignUpFailure();
+    }
+  }
+
+  Future<void> updateName(String name) async {
+    assert(name != null);
+    try {
+      firebase_auth.User user = _firebaseAuth.currentUser;
+      await user.updateProfile(displayName: name);
+    } on Exception {
+      throw UpdateProfileFailure();
     }
   }
 

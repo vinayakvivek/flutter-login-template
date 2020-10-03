@@ -26,6 +26,8 @@ class SignUpForm extends StatelessWidget {
               height: 120,
             ),
             const SizedBox(height: 16.0),
+            _NameInput(),
+            const SizedBox(height: 8.0),
             _EmailInput(),
             const SizedBox(height: 8.0),
             _PasswordInput(),
@@ -34,6 +36,29 @@ class SignUpForm extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _NameInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      buildWhen: (previous, current) => previous.name != current.name,
+      builder: (context, state) {
+        final bloc = context.bloc<SignUpCubit>();
+        return TextField(
+          key: const Key('signUpForm_nameInput_textField'),
+          onChanged: (name) => bloc.nameChanged(name),
+          decoration: InputDecoration(
+            labelText: 'name',
+            helperText: '',
+            errorText: state.name.invalid
+                ? 'Name should be atleast 5 letters'
+                : null,
+          ),
+        );
+      },
     );
   }
 }
