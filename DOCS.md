@@ -29,3 +29,12 @@
         ```
         apply plugin: 'com.google.gms.google-services'
         ```
+  - Add an iOS app
+    - Register app
+      - iOS bundleID: `com.direvin.flutterLoginTemplate`
+        [search for `PRODUCT_BUNDLE_IDENTIFIER` in `Runner.xcodeproj/project.pbxproj`]
+        [[help]](https://stackoverflow.com/a/55128145/13793292)
+      - App nickname: `Flutter Login Template`
+    - Add the config file to the xcode project
+      - Right-click on Runner -> Add files -> Select `GoogleService-Info.plist` (copy if required on)
+    - Check out [this](https://github.com/FirebaseExtended/flutterfire/issues/2751): *Couldn't find `ios/Podfile`*
