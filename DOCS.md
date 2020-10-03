@@ -38,3 +38,4 @@
     - Add the config file to the xcode project
       - Right-click on Runner -> Add files -> Select `GoogleService-Info.plist` (copy if required on)
     - Check out [this](https://github.com/FirebaseExtended/flutterfire/issues/2751): *Couldn't find `ios/Podfile`*
+      - Do `pod init` to create a Podfile

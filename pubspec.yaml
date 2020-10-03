@@ -11,6 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bloc: ^6.0.3
+  flutter_bloc: ^6.0.5
+  equatable: ^1.2.5
+  authentication_repository:
+    path: packages/authentication_repository
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
