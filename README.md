@@ -14,7 +14,7 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
 - Bloc based.
 
 ## How do I make this work in my local machine
-- Fix you package name: 
+- Fix your package name: 
   - It's `com.direvin.flutter_login_template` in this
   
 - Go to the firebase console, create a new project.
@@ -43,7 +43,7 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
 - Enable `Email/password`, `Google` and `Facebook` sign-in methods in firebase console -> authentication tab.
   - To enable `Facebook` login, you would have to create a new app in facebook developer console and get the AppID and AppSecret, update these values in the following files. For more info, visit the [flutter_facebook_login](https://github.com/roughike/flutter_facebook_login) library README.
     - `android/app/src/main/res/values/strings.xml`
-    - `Info.plist`
+    - `ios/Info.plist`
     
 
 **Steps I followed to create this are here: [DOCS](https://github.com/vinayakvivek/flutter-login-template/blob/master/DOCS.md)**
