@@ -60,4 +60,3 @@
     - Update Manifest file
   - Add FacebookLogin method in authentication_repository
   - Enable facebook sign-in method in firebase
-
