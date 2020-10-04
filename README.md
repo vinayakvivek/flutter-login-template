@@ -17,6 +17,15 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
 - Change the package name to whatever suits
   - It's `com.direvin.flutter_login_template` now
   - Follow these stackoverflow [answers](https://stackoverflow.com/questions/51534616/how-to-change-package-name-in-flutter)
+  - **Android**
+    - In `app/build.gradle`, update `android > defaultConfig > applicationId` with your package name.
+    - Update package name in the Manifest files.
+      - `android/app/src/profile/AndroidManifest.xml`
+      - `android/app/src/main/AndroidManifest.xml`
+      - `android/app/src/debug/AndroidManifest.xml`
+    - Update App name in `android/app/src/main/res/values/strings.xml`
+    - Rename package in the MainActivity `android/app/src/main/kotlin/com/direvin/flutter_login_template/MainActivity.kt`
+      - Change it's parent directory name as well
 - Go to the firebase console, create a new project.
   - **Android**:
     - In firebase console, create an android app,
