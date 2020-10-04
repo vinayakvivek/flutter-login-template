@@ -44,6 +44,11 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
   - To enable `Facebook` login, you would have to create a new app in facebook developer console and get the AppID and AppSecret, update these values in the following files. For more info, visit the [flutter_facebook_login](https://github.com/roughike/flutter_facebook_login) library README.
     - `android/app/src/main/res/values/strings.xml`
     - `ios/Info.plist`
-    
+
+- Change App icon
+  - Add your logo image to the `assets/` directory
+  - In `pubspec.yaml`, update `flutter_icons -> image_path` to the relative path of your logo
+  - run `flutter pub run flutter_launcher_icons:main`
+
 
 **Steps I followed to create this are here: [DOCS](https://github.com/vinayakvivek/flutter-login-template/blob/master/DOCS.md)**
