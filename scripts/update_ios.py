@@ -49,11 +49,14 @@ if __name__ == "__main__":
     parser.add_argument('--fb', help='Facebook AppID', metavar='id')
     args = parser.parse_args()
 
-    name = args.name
-    service_data = get_data_from_plist(args.google_services_file)
-    fb_app_id = args.fb
-    update_info_plist(name, service_data['REVERSED_CLIENT_ID'], fb_app_id)
-    update_bundle_id(service_data['BUNDLE_ID'])
+    try:
+        name = args.name
+        service_data = get_data_from_plist(args.google_services_file)
+        fb_app_id = args.fb
+        update_info_plist(name, service_data['REVERSED_CLIENT_ID'], fb_app_id)
+        update_bundle_id(service_data['BUNDLE_ID'])
 
-    # copy GoogleService-Info.plist
-    copy(args.google_services_file, 'ios/')
+        # copy GoogleService-Info.plist
+        copy(args.google_services_file, 'ios/')
+    except:
+        print('Invalid inputs')

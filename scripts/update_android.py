@@ -41,14 +41,17 @@ def update_files(name, package_name, fb_app_id):
     base = 'android/app/src/main/kotlin/com/'
     update_package_name(path.join(base, 'direvin/flutter_login_template/MainActivity.kt'), package_name)
     parts = package_name.split('.')
-    rename(
-        path.join(base, 'direvin/flutter_login_template'),
-        path.join(base, 'direvin/' + parts[2])
-    )
-    rename(
-        path.join(base, 'direvin'),
-        path.join(base, parts[1])
-    )
+    try:
+        rename(
+            path.join(base, 'direvin/flutter_login_template'),
+            path.join(base, 'direvin/' + parts[2])
+        )
+        rename(
+            path.join(base, 'direvin'),
+            path.join(base, parts[1])
+        )
+    except:
+        print('Already renamed')
 
 
 if __name__ == "__main__":
@@ -60,11 +63,13 @@ if __name__ == "__main__":
     parser.add_argument('--fb', help='Facebook AppID', metavar='id')
     args = parser.parse_args()
 
-    name = args.name
-    package_name = get_package_name(args.google_services_file)
-    fb_app_id = args.fb
+    try:
+        name = args.name
+        package_name = get_package_name(args.google_services_file)
+        fb_app_id = args.fb
 
-    update_files(name, package_name, fb_app_id)
-
-    # copy google-services.json
-    copy(args.google_services_file, 'android/app/')
+        # copy google-services.json
+        copy(args.google_services_file, 'android/app/')
+        update_files(name, package_name, fb_app_id)
+    except:
+        print('Invalid inputs')

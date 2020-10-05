@@ -14,9 +14,22 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
 - Bloc based.
 
 ## How do I make this work in my local machine
-- Fix your package name: 
+- Fix a valid package name for your project (required in firebase)
   - It's `com.direvin.flutter_login_template` in this
-  
+  - Format must be: `com.<company>.<project>`
+- Go to you firebase console, create a new project.
+  - Create an Android app and an iOS app.
+    - Save both `google-services.json` (android), `GoogleService-Info.plist` (ios) into your system.
+  - Enable `Email/password`, `Google` and `Facebook` sign-in methods in firebase console -> authentication tab.
+    - To enable `Facebook` login, you would have to create a new app in facebook developer console and get the AppID and AppSecret
+- Run the update script
+  ```
+  ./update.sh <App Name> <path to google-services.json> <path to GoogleService-Info.plist> <FBAppID>
+  ```
+  > This scripts updates package name and other required fields in both android and ios directories. If you don't want to run this, in the following section, I've described the steps I followed.
+- Done. Now you can build and run your App with authentication in both Android and iOS 🍻.
+
+### **[Only for reference]** Steps to update the project with your App details
 - Go to the firebase console, create a new project.
   - **Android**:
     - In firebase console, create an android app,
@@ -45,7 +58,7 @@ Built on top of [login example](https://github.com/felangel/bloc/tree/master/exa
     - `android/app/src/main/res/values/strings.xml`
     - `ios/Info.plist`
 
-- Change App icon
+## Change App icon
   - Add your logo image to the `assets/` directory
   - In `pubspec.yaml`, update `flutter_icons -> image_path` to the relative path of your logo
   - run `flutter pub run flutter_launcher_icons:main`
